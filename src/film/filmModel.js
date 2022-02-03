@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const filmSchema = mongoose.Schema({
   name: {
     type: String,
-    require: true,
+    required: true,
   },
   actor: {
     type: String,

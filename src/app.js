@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
-const { addMovie, list } = require("./film/filmMethods");
+const { addMovie, list, updateMovie } = require("./film/filmMethods");
 const argv = yargs(hideBin(process.argv)).argv;
 
 const app = async () => {
@@ -14,6 +14,9 @@ const app = async () => {
     });
   } else if (argv.list) {
     list();
+  } else if (argv.update) {
+    await updateMovie({ name: "a different film" }, { name: "a new film" });
+    console.log(argv.filter, argv.change);
   } else {
     console.log("wrong command");
   }

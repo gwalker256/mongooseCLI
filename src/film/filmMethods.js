@@ -18,3 +18,19 @@ exports.list = async () => {
   } catch (error) {}
   mongoose.connection.close();
 };
+
+exports.updateMovie = async (filter, change) => {
+  try {
+    await FilmModel.findOneAndUpdate(filter, change, {
+      new: true,
+    });
+    console.log("Movie probably not updated but you never know");
+  } catch (error) {
+    console.log(error);
+  }
+  mongoose.connection.close();
+};
+
+// let doc = await Character.findOneAndUpdate(filter, update, {
+//   new: true,
+// });
